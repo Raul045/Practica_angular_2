@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import{Persona} from '../../Modelos/persona';
+import{PERSONAS} from '../../mocks/mock-personas'
+
 
 @Component({
   selector: 'app-componente-per',
@@ -8,19 +10,16 @@ import{Persona} from '../../Modelos/persona';
 })
 export class ComponentePerComponent implements OnInit {
 
-  public nombre: string;
-  public apellidos: string;
-  public edad: string;
-  public sexo: string;
+  persona: Persona = {
+    id:"",
+    nombre: "Raul",
+  };
+  personas = PERSONAS;
 
-  public person = new Persona()
-
-  constructor() {
-    this.nombre = this.person.nombre = "Raul"
-    this.apellidos = this.person.apellidos = "Anguiano"
-    this.edad = this.person.edad = "19"
-    this.sexo = this.person.Sexo = "Masculino"
-   }
+  mostrar:boolean = true
+  info:boolean = false
+  
+  constructor() {}
 
   ngOnInit(): void {
     

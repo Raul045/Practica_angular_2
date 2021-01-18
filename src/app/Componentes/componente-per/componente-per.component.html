@@ -1,9 +1,27 @@
-<p>Datos</p>
-<ul>
-    <li>
-        Nombre: {{nombre}}
-    </li>
-    <li>Apellidos: {{apellidos}}</li>
-    <li>Edad: {{edad}}</li>
-    <li>Sexo: {{sexo}}</li>
-</ul>
+<h1>Actividad</h1>
+<h2>Lista de personas: </h2><br>
+<button class="btn btn-warning" (click)="mostrar=!mostrar">Mostrar</button>
+<br />
+<div class="container">
+    <div class="row row-cols-2">
+        <div class="col">
+            <ol>
+                <li *ngFor="let persona of personas">
+                    <button type="button" class="btn btn-secondary" (click)="info=!info"> {{persona.nombre}}</button>
+                </li>
+            </ol>
+        </div>
+        <div class="col" *ngIf="mostrar">
+            <ol *ngIf="info">
+                <li *ngFor="let persona of personas; index as i;">
+                    <span></span>ID: {{persona.id}}, nombre: {{persona.nombre}} 
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div>
+    <label>Nombre: 
+        <input *ngFor="let persona of personas;" [(ngModel)]= "persona.nombre" placeholder="name">
+    </label>
+</div>
